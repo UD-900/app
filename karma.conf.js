@@ -16,7 +16,9 @@ module.exports = function (config) {
       require('karma-jasmine-html-reporter'), //plugin yang menampilkan hasil tes dalam format html di browser
       require('karma-coverage'), //plugin yang menghasilkan laporan code coverage (seberapa banyak kode yang diuji)
       require('@angular-devkit/build-angular/plugins/karma'), //plugin khusus angular cli untuk berinteraksi dengan proses build dan testing angular
-      require('karma-junit-reporter')
+      require('karma-junit-reporter'),
+      require('karma-htmlfile-reporter')
+
     ],
     client: {
       jasmine: {
@@ -50,6 +52,10 @@ module.exports = function (config) {
       outputFile: 'junit-report.xml', // Nama file laporan
       useBrowserName: false,
       suite: '',
+    },
+    htmlReporter: {
+      outputFile: 'test-reports/html/unit-test-report.html',
+      pageTitle: 'Unit Test Results'
     },
     reporters: ['progress', 'kjhtml', 'junit'],
     browsers: ['Chrome'],
